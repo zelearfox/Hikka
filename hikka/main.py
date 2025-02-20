@@ -86,10 +86,17 @@ CONFIG_PATH = BASE_PATH / "config.json"
 IS_TERMUX = "com.termux" in os.environ.get("PREFIX", "")
 IS_CODESPACES = "CODESPACES" in os.environ
 IS_DOCKER = "DOCKER" in os.environ
+IS_PTERODACTYL = "PTERODACTYL" in os.environ
 IS_RAILWAY = "RAILWAY" in os.environ
 IS_GOORM = "GOORM" in os.environ
 IS_LAVHOST = "LAVHOST" in os.environ
 IS_WSL = False
+
+PTERODACTYL_NAME = "🦅 Pterodactyl"
+
+if "PTERODACTYL_NAME" in os.environ:
+    PTERODACTYL_NAME = os.environ["PTERODACTYL_NAME"]
+
 with contextlib.suppress(Exception):
     from platform import uname
 
